@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex布局</title>
+    <meta name="description" content="擅长捉弄的高木同学--个人自制主内容页面" />
+    <meta name="keywords" content="擅长捉弄的高木同学" />
+    <meta name="copyright" content="ZT" />
+    <meta name="author" content="ZT" />
+    <meta name="reply-to" content="834399177@qq.com" />
+    <meta name="robots" content="all" />
+    <!-- 以下为设置浏览器页面标签小图标 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="icon" href="favicon.ico" />
+    <!-- 以下为设置浏览器页面收藏栏小图标，尚未确定是否有效 -->
+    <link rel="shortcut icon" href="icon2.jpg" type="image/x-icon" />
+    <style>
+      body {
+        /* 这是给body模块赋予css属性 */
+        margin: 0;
+        height: 100vh;
+        background-color: #eee;
+        /* vh即view height，视角高度，100vh为100%视角高度 */
+      }
+      * {
+        /* 这是给全局所有模块赋予css属性，“*”表示通用选项 
+        这是给所有块赋予1px厚度的边框，利于观察块的布局 */
+        /* border: 1px solid black; */
+      }
+      .flex {
+        /* 一个flex属性的块，能够使得其下属的所有块都能被其控制，
+        若赋给body，则body下的所有块都会收flex控制 */
+        display: flex;
+        /* flex-direction默认是横向属性，其下属的块全部row式排版 */
+      }
+      .flex1 {
+        flex: 1;
+        /* 简单理解的话，flex：1会使得所在块占满剩余的所有位置，
+        如果有两个flex：1的块，它们将各占剩余位置的1/2，以此类推。 */
+      }
+      .column {
+        flex-direction: column;
+      }
+      .baise {
+        /* 这是白色背景的class，只是方便调用 */
+        background-color: white;
+      }
+      .baise1 {
+        /* 这是白色烟雾背景的class，只是方便调用 */
+        background-color: whitesmoke;
+      }
+      .shadow {
+        box-shadow: rgb(0 0 0 /20%) 0px 2px 1px -1px,
+          rgb(0 0 0 /14%) 0px 1px 1px 0px, rgb(0 0 0 /12%) 0px 1px 3px 0px;
+      }
+      .shadow1 {
+        box-shadow: rgb(97, 23, 218);
+      }
+      .mg8 {
+        /* 上下左右边距均为8px */
+        margin: 8px;
+      }
+      .mgr8 {
+        /* 右边距8px */
+        margin-right: 8px;
+      }
+      .mgl8 {
+        /* 左边距8px */
+        margin-left: 8px;
+      }
+      .mgt8 {
+        /* 顶部边距8px */
+        margin-top: 8px;
+      }
+      .overflow {
+        /* 可以使块内过多的内容在块内滚动，而不影响整个网页 */
+        overflow: auto;
+      }
+      .signature {
+        font-weight: bold;
+        font-style: normal;
+        color: rgb(19, 15, 228);
+      }
+      .guide {
+        padding: 10px 20px;
+        border-bottom: 1px solid rgb(190 190 190);
+        font-size: 14px;
+        color: #666;
+        align-content: center;
+        /* Sets the distribution of space between and around content items along a flexbox's cross-axis. */
+        align-items: center;
+        /* Defines how the browser distributes space between and around content items 
+        along the cross-axis of a flex container. */
+        justify-content: center;
+        /* Defines how the browser distributes space between and around content items 
+        along the main-axis of a flex container. */
+      }
+      .profilebar {
+        padding: 10px;
+        height: 120px;
+        align-content: center;
+        /* 更改交叉轴块与块的间距 */
+        align-items: center;
+        /* 交叉轴居中对齐 */
+        justify-content: center;
+        /* 主轴行内居中 */
+        border-bottom: 1px solid #999;
+        /* 下边框 */
+      }
+      .mediate {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      @media (max-width: 600px) /* 当屏幕宽度小于600px时以下class属性生效，否则不起任何作用 */ {
+        .ceBian {
+          display: none;
+        }
+        .neiRong {
+          flex-direction: column;
+        }
+        .shuJuQu {
+          flex-direction: column;
+        }
+        .youQu {
+          margin-left: 8px;
+        }
+        .shuJu {
+          margin: 0 0 8px;
+          flex: auto;
+        }
+      }
+    </style>
+  </head>
+  <!-- body是横向分为两大块 -->
+  <body class="flex">
+    <!-- 建立（左）侧边栏 -->
+    <div
+      class="ceBian baise shadow column flex"
+      style="width: 200px; z-index: 2"
+    >
+      <!-- 头像栏 -->
+      <div class="profilebar flex">
+        <img src="profile.jpg" alt="头像" width="40px" ;height="40px" />
+        <div class="signature mgl8"><p>FLEX布局演练</p></div>
+      </div>
+      <!-- 导航栏，flex1占满剩余空间 -->
+      <div class="flex flex1 column">
+        <div class="guide flex1"><div class="mediate">导航</div></div>
+        <div class="guide flex1"><div class="mediate">导航</div></div>
+        <div class="guide flex1"><div class="mediate">导航</div></div>
+        <div class="guide flex1"><div class="mediate">导航</div></div>
+        <div class="guide flex1"><div class="mediate">导航</div></div>
+        <div class="guide overflow column" style="flex: 5">
+          <div class="mediate" style="height: 100px">导航</div>
+          <div class="mediate" style="height: 100px">导航</div>
+          <div class="mediate" style="height: 100px">导航</div>
+          <div class="mediate" style="height: 100px">导航</div>
+          <div class="mediate" style="height: 100px">导航</div>
+          <div class="mediate" style="height: 100px">导航</div>
+          <div class="mediate" style="height: 100px">导航</div>
+          <div class="mediate" style="height: 100px">导航</div>
+        </div>
+      </div>
+    </div>
+    <!-- 建立主区域栏，用flex1占去body横向的剩余部分，主区域栏是纵向分为两大块 -->
+    <div class="flex flex1 column">
+      <!-- 头部栏 -->
+      <div style="height: 100px" class="baise shadow"></div>
+      <!-- 内容区，用flex1占去主区域除头部栏的剩余部分，内容区横向被分为两大块 -->
+      <div class="neiRong flex1 flex overflow" style="z-index: 1">
+        <!-- 左区，占内容区的3/4，是上下纵向结构，分为数据区和列表区 -->
+        <div style="flex: 3" class="flex column mg8">
+          <!-- 左区的上下结构被分为1+n块，第一块数据区中横向有四个小数据块 -->
+          <div class="shuJuQu flex">
+            <!-- 数据块 -->
+            <div
+              class="shuJu flex1 mgr8 baise shadow"
+              style="height: 100px"
+            ></div>
+            <div
+              class="shuJu flex1 mgr8 baise shadow"
+              style="height: 100px"
+            ></div>
+            <div
+              class="shuJu flex1 mgr8 baise shadow"
+              style="height: 100px"
+            ></div>
+            <div class="shuJu flex1 baise shadow" style="height: 100px"></div>
+          </div>
+          <!-- 左区数据区下的列表区外均分为n块，纵向分布 -->
+          <div class="flex column">
+            <!-- 列表项 -->
+            <div style="height: 150px" class="baise mgt8 shadow"></div>
+            <div style="height: 150px" class="baise mgt8 shadow"></div>
+            <div style="height: 150px" class="baise mgt8 shadow"></div>
+            <div style="height: 150px" class="baise mgt8 shadow"></div>
+            <div style="height: 150px" class="baise mgt8 shadow"></div>
+            <div style="height: 150px" class="baise mgt8 shadow"></div>
+            <div style="height: 150px" class="baise mgt8 shadow"></div>
+            <div style="height: 150px" class="baise mgt8 shadow"></div>
+          </div>
+        </div>
+        <!-- 右区，占内容区的1/4，也是上下纵向结构 -->
+        <div style="flex: 1" class="youQu flex column mgt8 mgr8">
+          <!-- 右区的第一块提示区占20%高度，第二块消息区固定500px高度 -->
+          <div style="height: 200px" class="baise shadow"></div>
+          <div style="height: 500px" class="baise shadow mgt8"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 以下为设置浏览器页面标签小图标 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="icon" href="favicon.ico" />
+    <title>实时学习笔记</title>
+    <header>
+      style称为内部样式表,可以写整个页面的CSS
+      <br />为给目标对象精准套上样式，就需要CSS选择器，通常有三种：<br />
+      1.直接写标签名，如：p{ <br />color:red <br />}<br />2.ID选择，如：#one{
+      <br />color:red<br />}<br />3.class选择器，如：.hxek{<br />color:red<br />}<br />
+      注※：方法2一般用于单个标签，多个标签最好不要用同一个ID，其中的“one”是用户自己定义的名称，前面记得加“#”；方法3用的最多，多个html的标签可以用同一个class，其中的“hxek”是用户自己定义的名称，前面记得加“.”。
+    </header>
+    <br />
+    <br />
+    <style>
+      /*修改placeholder颜色，必须分开写样式
+            修改input提示文本颜色*/
+      /* 由于每个浏览器的解析都不一样，所以需要对某些浏览器单独进行解析，也就是兼容
+              Mozilla Firefox 19+ */
+      ::-webkit-input-placeholder {
+        color: rgba(197, 171, 171, 1);
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      ::-moz-input-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: rgba(197, 171, 171, 0.5);
+        font-weight: bold;
+        font-style: italic;
+      }
+      ::-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: rgba(197, 171, 171, 0.5);
+        font-weight: bold;
+        font-style: italic;
+      }
+      /* 修改块属性的class */
+      .flex {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+      }
+      .container {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        /* row为默认排版方向，可省略 */
+        border: solid green;
+      }
+      .container initial {
+        -webkit-flex: initial;
+        flex: initial;
+        min-width: 100px;
+        width: 200px;
+        /* 这是container里的子块，已经是flex属性，不需要额外定义display: flex; */
+        border: solid orange;
+      }
+      .container none {
+        -webkit-flex: initial;
+        flex: initial;
+        width: 200px;
+        border: solid yellow;
+      }
+      .container flex1 {
+        -webkit-flex: 1;
+        flex: 1;
+        border: solid blue;
+      }
+      .container flex2 {
+        -webkit-flex: 2;
+        flex: 2;
+        border: solid red;
+      }
+      .initial {
+        -webkit-flex: initial;
+        flex: initial;
+        min-width: 100px;
+        width: 200px;
+        /* 这是container里的子块，已经是flex属性，不需要额外定义display: flex; */
+        border: solid orange;
+      }
+      .none {
+        -webkit-flex: initial;
+        flex: initial;
+        width: 200px;
+        border: solid yellow;
+      }
+      .flex1 {
+        -webkit-flex: 1;
+        flex: 1;
+        border: solid blue;
+      }
+      .flex2 {
+        -webkit-flex: 2;
+        flex: 2;
+        border: solid red";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      header 标签用于定义文档的页眉（介绍信息）<br /><br />
+      hr标签在HTML页面中创建水平线。hr元素可用于分隔内容。就像下面这条黄色分割线：
+      <hr
+        style="
+          border: 0;
+          clear: both;
+          display: block;
+          width: 96%;
+          background-color: #ffff00;
+          height: 1px;
+        "
+      />
+    </div>
+    <br />
+    <br />
+
+    <div class="container">
+      <initial style="border: dashed red">
+        <!-- 内联属性拥有最高优先级，就像这里的dashed边框就优先于class里的solid边框 -->
+        空间足够的时候，我的宽度是200px，如果空间不足，我会变窄到100px，但不会再窄了。</initial
+      >
+      <none>无论窗口如何变化，我的宽度一直是200px。</none>
+      <flex1>我会占满剩余宽度的1/3。</flex1>
+      <flex2>我会占满剩余宽度的2/3。</flex2>
+    </div>
+    <!-- 上面利用了第一种块中块写法，"."+"母块名称"+"子块名称"，而后直接引用<子块名称>即可。 -->
+    <br />
+    <div class="container">
+      <div class="initial">
+        空间足够的时候，我的宽度是200px，如果空间不足，我会变窄到100px，但不会再窄了。
+      </div>
+      <div class="none">无论窗口如何变化，我的宽度一直是200px。</div>
+      <div class="flex1">我会占满剩余宽度的1/3。</div>
+      <div class="flex2">我会占满剩余宽度的2/3。</div>
+    </div>
+    <!-- 上面是第二种块中块写法，"."+"子块名称"，而后用<div class="子块名称">写入，但不晓得为什么最后一块的边框属性丢失了</div> -->
+    <br />
+    <form action="login1.php">
+      Account: <br /><input
+        type="text"
+        name="accounts"
+        placeholder="账号"
+      /><br />
+      Password: <br /><input
+        type="password"
+        name="passwords"
+        placeholder="密码"
+      /><br />
+      <input type="submit" value="提交" />
+      现在交互功能还未完成，不能成功产生提交结果。
+    </form>
+    <br />
+    <form action="search.php" method="get">
+      <input
+        type="search"
+        name="user_search"
+        placeholder="Search What You Want"
+      />
+      <input type="submit" value="搜索" />
+      现在交互功能还未完成，不能成功产生搜索结果。
+    </form>
+    <br />
+    <form action="MAILTO:834399177@qq.com" method="post" enctype="text/plain">
+      <h3>
+        完成下方操作将把电子邮件发送到<strong style="color: red"
+          >834399177@qq.com</strong
+        >（即网站作者邮箱）。
+      </h3>
+      <p>目前只能英文输入，否则邮件内容会乱码</p>
+      你的姓名：<br />
+      <input type="text" name="name" placeholder="yourname" size="20" />
+      <br />
+      你的邮箱：<br />
+      <input type="text" name="mail" placeholder="yourmail" size="20" />
+      <br />
+      完善建议：<br />
+      <!-- <input type="text" name="comment" placeholder="youradvice" size="40" /> -->
+      <!-- input type="text"是用于形成单行文本框；textarea用于形成多行文本框。 -->
+      <textarea
+        name="comment"
+        placeholder="youradvice"
+        rows="8px"
+        cols="40px"
+      ></textarea>
+      <br /><br />
+      <input type="submit" value="发送" />
+      <input type="reset" value="重置" />
+    </form>
+  </body>
+</html>
