@@ -74,19 +74,23 @@
         flex:1 1 auto;
         justify-content: center;
     }
+    .bodyback{
+        background-image: url(backimg.jpg) ;
+        height: auto; width: auto\9; max-width:100%;;overflow:visible      
+        /* \9”是hack css 的一种写法，这种在正常css代码后面加"\9"的方式，只有IE浏览器才能识别，其他浏览器会忽略这条语句。这样就能做到差异化浏览器，来达到兼容浏览器的目的。        */
+    }
     
 </style>
 </head>
-
-<body style="margin: 0;
-        background-image: url(https://ts1.cn.mm.bing.net/th/id/R-C.d7d4d9e5eac791b6a82d339eb166314c?rik=1E%2bK%2biNakDNTrw&riu=http%3a%2f%2f5b0988e595225.cdn.sohucs.com%2fimages%2f20180722%2f4ebb61024dde401b940cd25bc932f486.jpg&ehk=xqjBvt3zOUHtwdEFOupjXlTB8mmnGcRL1p5joSnr47g%3d&risl=&pid=ImgRaw&r=0) ; 
+<body style="margin: 0;"class="bodyback"
+        /* background-image: url(backimg.jpg) ; 
                        
         -webkit-background-size: cover;
 		-o-background-size: cover;
         -moz-background-size: cover;    
 
-        background-size: cover;
-    ">
+        background-size: cover; */
+    >
     <!-- background-image: url(background1.jpg); -->
     <!-- background-image: url(https://ts1.cn.mm.bing.net/th/id/R-C.d7d4d9e5eac791b6a82d339eb166314c?rik=1E%2bK%2biNakDNTrw&riu=http%3a%2f%2f5b0988e595225.cdn.sohucs.com%2fimages%2f20180722%2f4ebb61024dde401b940cd25bc932f486.jpg&ehk=xqjBvt3zOUHtwdEFOupjXlTB8mmnGcRL1p5joSnr47g%3d&risl=&pid=ImgRaw&r=0) ; -->
     <!--主体部分可用 <div></div> 形成多个多个默认block属性的块盒子以分隔页面-->
